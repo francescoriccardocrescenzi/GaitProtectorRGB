@@ -1,0 +1,26 @@
+\section{Scope}
+
+GaitProtector \cite{duan2026gaitprotector} is a targeted gait de-identification method that relies on adversarial optimization of latent diffusion features 
+to perturb gait patterns in silhouette videos. GaitProtector is able to produce natural looking de-identified videos that closely preserve the 
+spatial structure of the original videos while impeding identifications of subjects through gait detectors. Such spatial structure is so well preserved that
+identifying gait patterns are removed without disturbing signal that can lead to diagnosis of scoliosis and other medical conditions, enabling de-identification
+of medical datasets.
+
+While GaitProtector has a satisfactory performance on silhouette videos of single individuals extracted from a constrained dataset, it was not designed to work on RGB videos and was
+not tested by its authors on unconstrained data. The goal of this study is to extend the GaitProtector approach to RGB footage, test it on unconstrained data, 
+and evaluate its future integration in pipelines able to de-identify multiple subjects at once. This experiment is part of a broader effort to make gait identification
+and deidentification techniques more robust and suitable for real-world data \cite{fan2023opengait}.
+
+In particular, we hope to achieve the following incremental goals:
+\begin{enumerate}
+    \item \textbf{Replicate the original GaitProtector paper.} This step is necessary because the authors of GaitProtector did not share any of the original code.
+    \item \textbf{Adapt GaitProtector to work on constrained RGB data.} The original paper uses VideoFusion \cite{luo2023videofusion} as the main diffusion backbone. Video fusion can take
+    RGB input, so we assume the only portion of the GaitProtector pipeline requiring alteration will be the optimization algorithm. We may choose to replace the iterative non-neural
+    optimization proposed by GaitProtector with a more sophisticated neural non-iterative module to accommodate for the richer RGB signal.
+    \item \textbf{Test the newly developed de-identification system on unconstrained data.} E.g. we may test the model on GREW dataset \cite{Zhu_2021_ICCV} on top of replicating
+    the same tests described in the original GaitProtector paper. We plan to retain the same black-box threat evaluation protocol used by the GaitProtector authors.
+    \item \textbf{Adapt the newly developed system to multi-individual footage.} This is the most ambitious goal of our study. We plan to try two different approaches. The first
+    and most natural approach would entail tracking individuals across the multi-individual video, de-identifying each individual's gait by applying the pipeline to a crop of the original video, and then combining the results
+    together. The second more difficult but possibly more elegant approach consists in tracking and de-identifying individuals directly in the latent diffusion space. We do not expect to
+    be fully successful with any of these two approaches, but we expect them to set an interesting baseline for work to come.
+\end{enumerate}

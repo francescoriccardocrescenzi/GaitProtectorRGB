@@ -3,12 +3,13 @@ The emergence of gait recognition as a primary biometric signature of individual
 footage containing people's gait is shared online as part of publicly available datasets. Gait de-identification methods can be used to perturb gait patterns so as to
 impede identification of the individuals depicted in the footage.
 
-While existing gait de-identification methods can be effective when applied to silhuettes, there are few reliable methods designed to anonymize RGB. Moreover, 
+While existing gait de-identification methods can be effective when applied to silhouettes, there are few reliable methods designed to anonymize RGB data. Moreover, 
 most such systems produce low-resolution unnatural output that might not be suitable for the intended uses of the aforementioned datasets. In addition, these systems
 are mostly designed to anonymize constrained low-noise footage depicting single individuals walking, while most gait detection systems consume noisy unconstrained data with multiple individuals.
 
 A promising recent direction for gait de-identification is the use of frozen diffusion networks to generate anonymized gait videos. GaitProtector is the first such
-system recently introduced by researchers. Unfortunately, GaitProtector can only anonymize silhuette videos.
+system recently introduced by researchers. Unfortunately, GaitProtector can only anonymize silhouette videos.
 In this study, we revisit GaitProtector and adapt it to RGB footage, we train and evaluate our proposed pipeline using both constrained and unconstrained data,
 and we critically analyze the possible extension of our system to multi-individual scenarios.
 \end{abstract}
+
