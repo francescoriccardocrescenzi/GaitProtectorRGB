@@ -1,0 +1,3 @@
+[submodule "Project/submodules/healthgait"]
+	path = Project/submodules/healthgait
+	url = https://github.com/AVAuco/healthgait
